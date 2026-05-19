@@ -9,4 +9,4 @@ invalid_types = ["unknown"]
 events = events[events["event_type"].isin(invalid_types) == False] # Drop invalid event types
 events["timestamp"] = events["timestamp"].apply(lambda x: pd.Timestamp(x).isoformat()) # Normalize timestamp to ISO 8601
 Path("data/clean").mkdir(parents=True, exist_ok=True)
-events.to_csv("data/clean/events.csv") # Save cleaned events.csv to data/clean/events.csv
+events.to_csv("data/clean/events.csv",index=False) # Save cleaned events.csv to data/clean/events.csv
