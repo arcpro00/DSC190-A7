@@ -1,0 +1,18 @@
+dvc stage add -n clean \
+    -d scripts/clean.py \
+    -d data/raw/events.csv \
+    -o data/clean/events.csv \
+    python scripts/clean.py
+
+dvc stage add -n transform \
+    -d scripts/transform.py \
+    -d data/clean/events.csv \
+    -o data/transformed/events.csv \
+    python scripts/transform.py
+
+dvc stage add -n features \
+    -d scripts/features.py \
+    -d data/transformed/events.csv \
+    -o data/features/events.csv \
+    python scripts/features.py
+
